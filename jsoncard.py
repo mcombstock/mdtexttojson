@@ -9,24 +9,25 @@ def read_file():
     data['author'] = "jo mama"
     data['calls'] = []
     
-    question_list = []
-    
-    with open("question.txt", "r") as sources:
+    with open("question.txt", "r", encoding='utf-8', errors='ignore') as sources:
             lines = sources.read().splitlines()
             for i in lines:
+                question_list = []
                 question_list.clear()
                 question_list.append(process_question(i))
-                data['calls'].append(question_list)
                 
+                data['calls'].append(question_list)
 
+    
     data['responses'] = []
     answer_list = []
     
-    with open("answers.txt", "r") as sources:
+    with open("answers.txt", "r",errors='ignore') as sources:
             lines = sources.read().splitlines()
             for i in lines:
                 data['responses'].append(i)
                 
+    
     with open('data.json5', 'w') as outfile:
         json.dump(data, outfile,indent=2)
     
