@@ -10,7 +10,6 @@ def read_file():
     data['calls'] = []
     
     question_list = []
-    t_as = []
     
     with open("question.txt", "r") as sources:
             lines = sources.read().splitlines()
@@ -19,8 +18,10 @@ def read_file():
                 question_list.append(process_question(i))
                 data['calls'].append(question_list)
                 
-    answer_list = []
+
     data['responses'] = []
+    answer_list = []
+    
     with open("answers.txt", "r") as sources:
             lines = sources.read().splitlines()
             for i in lines:
